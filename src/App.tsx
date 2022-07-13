@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {styled} from "@mui/system";
+import {FilterInput} from "./components/filterInput";
+import {TasksList} from "./components/tasks-list";
+import {NewTaskInput} from './components/newTaskInput';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const StyledContainer = styled('div')(() => ({
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: 700,
+    margin: 'auto',
+    padding: 10
+}));
 
-export default App;
+export const App = () => {
+    return <StyledContainer>
+        <FilterInput/>
+        <TasksList/>
+        <NewTaskInput/>
+    </StyledContainer>;
+};
